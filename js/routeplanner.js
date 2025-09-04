@@ -1,8 +1,7 @@
-﻿//document.addEventListener("DOMContentLoaded", () => {
-const orsApiKey = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImMwMGZmNjIwYTkxMzQwMWRiZWEzYmZmZmRhNjBhYjc2IiwiaCI6Im11cm11cjY0In0=";
+﻿var orsApiKey = "eyJvcmciOiI1YjNjZTM1OTc4NTExMTAwMDFjZjYyNDgiLCJpZCI6ImMwMGZmNjIwYTkxMzQwMWRiZWEzYmZmZmRhNjBhYjc2IiwiaCI6Im11cm11cjY0In0=";
 
 // Initialize the map
-const map = L.map("map").setView([38.2527, -85.7585], 9); // Centered on Louisville, KY
+var map = L.map("map").setView([38.2527, -85.7585], 9); // Centered on Louisville, KY
 
 // Add an OpenStreetMap tile layer
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
@@ -10,24 +9,24 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
-let startMarker = null;
-let endMarker = null;
-let routePolyline = null;
-const messageBox = document.getElementById("message-box");
-const loadingIndicator = document.getElementById("loading-indicator");
-const clearBtn = document.getElementById("clear-btn");
-const routeDetails = document.getElementById("route-details");
-const distanceBox = document.getElementById("distance-box");
-const timeBox = document.getElementById("time-box");
-const directionsList = document.getElementById("directions-list");
-const startBtn = document.getElementById("start-btn");
-const defaultBtn = document.getElementById("default-btn");
-const resetBtn = document.getElementById("reset-btn");
-const startInput = document.getElementById("origin");
-const endInput = document.getElementById("destination");
+var startMarker = null;
+var endMarker = null;
+var routePolyline = null;
+var messageBox = document.getElementById("message-box");
+var loadingIndicator = document.getElementById("loading-indicator");
+var clearBtn = document.getElementById("clear-btn");
+var routeDetails = document.getElementById("route-details");
+var distanceBox = document.getElementById("distance-box");
+var timeBox = document.getElementById("time-box");
+var directionsList = document.getElementById("directions-list");
+var startBtn = document.getElementById("start-btn");
+var defaultBtn = document.getElementById("default-btn");
+var resetBtn = document.getElementById("reset-btn");
+var startInput = document.getElementById("origin");
+var endInput = document.getElementById("destination");
 
 // --- UI Functions ---
-const updateMessage = (message, type = "info") => {
+var updateMessage = (message, type = "info") => {
     let colorClass = "";
     let bgColorClass = "";
     if (type === "info") {
@@ -44,12 +43,12 @@ const updateMessage = (message, type = "info") => {
     messageBox.innerHTML = message;
 };
 
-const toggleLoading = (isLoading) => {
+var toggleLoading = (isLoading) => {
     clearBtn.disabled = isLoading;
     resetBtn.disabled = isLoading;
 };
 
-const displayRouteDetails = (data) => {
+var displayRouteDetails = (data) => {
     loadingIndicator.classList.add("d-none");
     routeDetails.classList.remove("d-none");
 
@@ -81,7 +80,7 @@ const displayRouteDetails = (data) => {
     });
 };
 
-const clearMap = () => {
+var clearMap = () => {
     if (startMarker) {
         map.removeLayer(startMarker);
         startMarker = null;
@@ -104,7 +103,7 @@ const clearMap = () => {
 };
 
 // --- API Function ---
-const getRoute = async (start, end) => {
+var getRoute = async (start, end) => {
     if (!start || !end) return;
 
     toggleLoading(true);
@@ -351,5 +350,3 @@ clearBtn.addEventListener("click", clearMap);
 defaultBtn.addEventListener("click", defaultCurrentAddress);
 resetBtn.addEventListener("click", clearMap);
 startBtn.addEventListener("click", geoCodeAndRoute);
-
-//});
