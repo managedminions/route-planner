@@ -13,8 +13,6 @@ const HomePage = () => {
         document.body.appendChild(script);
     }, [location.key]);
 
-    feather.replace();
-
     return (
         <main className="content">
             <div className="container-fluid p-0">

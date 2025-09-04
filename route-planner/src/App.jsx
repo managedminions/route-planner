@@ -14,6 +14,13 @@ function App() {
 
     const [count, setCount] = useState(0);
 
+    useEffect(() => {
+        feather.replace();
+    }, [location.key]);
+
+    feather.replace();
+
+
     return (
         <>
             <div className="wrapper">
@@ -34,6 +41,12 @@ function App() {
                                 <Link className="sidebar-link" to="/profile">
                                     <i className="align-middle" data-feather="user" />{" "}
                                     <span className="align-middle">Profile</span>
+                                </Link>
+                            </li>
+                            <li className="sidebar-item">
+                                <Link className="sidebar-link" to="/about">
+                                    <i className="align-middle" data-feather="user" />{" "}
+                                    <span className="align-middle">About</span>
                                 </Link>
                             </li>
                             <li className="sidebar-header">Tools & Components</li>
