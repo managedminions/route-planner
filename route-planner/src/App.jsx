@@ -14,21 +14,13 @@ function App() {
 
     const [count, setCount] = useState(0);
 
-    useEffect(() => {
-        feather.replace();
-        var script = document.createElement('script');
-        script.async = false;
-        script.src = "js/routeplanner.js";
-        document.body.appendChild(script);
-    }, []);
-
     return (
         <>
             <div className="wrapper">
                 <nav className="sidebar js-sidebar" id="sidebar">
                     <div className="sidebar-content js-simplebar">
                         <a className="sidebar-brand" href="index.html">
-                            <span className="align-middle">AdminKit</span>
+                            <span className="align-middle">Route Planner</span>
                         </a>
                         <ul className="sidebar-nav">
                             <li className="sidebar-header">Pages</li>

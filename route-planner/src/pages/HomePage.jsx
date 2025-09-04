@@ -1,7 +1,20 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
 const HomePage = () => {
+
+    const location = useLocation();
+
+    useEffect(() => {
+        var script = document.createElement('script');
+        script.async = false;
+        script.src = "js/routeplanner.js";
+        document.body.appendChild(script);
+    }, [location.key]);
+
+    feather.replace();
+
     return (
         <main className="content">
             <div className="container-fluid p-0">
