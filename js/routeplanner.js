@@ -9,6 +9,7 @@ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(map);
 
+// Get element references
 var startMarker = null;
 var endMarker = null;
 var routePolyline = null;
@@ -95,13 +96,22 @@ var clearMap = () => {
     }
     map.setView([38.2527, -85.7585], 9);
     startInput.focus();
-    updateMessage("Map cleared. Click to set a new starting point.");
     clearBtn.disabled = true;
     routeDetails.classList.add("d-none");
     distanceBox.textContent = "";
     timeBox.textContent = "";
     directionsList.innerHTML = "";
 };
+
+var clearRoute = () => {
+    clearMap();
+    updateMessage("Map cleared. Click to set a new starting point.");
+}
+
+var resetForm = () => {
+    clearMap();
+    updateMessage("Form reset. Enter a new starting and ending address.");
+}
 
 // --- API Function ---
 var getRoute = async (start, end) => {
@@ -347,7 +357,15 @@ map.on("click", (e) => {
     }
 });
 
-clearBtn.addEventListener("click", clearMap);
+startInput.addEventListener('blur', function () {
+    updateMessage("Starting address set. Now specify the destination address.");
+});
+
+endInput.addEventListener('blur', function () {
+    updateMessage("Destination address set. Now click Start to calculate the route.");
+});
+
+clearBtn.addEventListener("click", clearRoute);
 defaultBtn.addEventListener("click", defaultCurrentAddress);
-resetBtn.addEventListener("click", clearMap);
+resetBtn.addEventListener("click", resetForm);
 startBtn.addEventListener("click", geoCodeAndRoute);
