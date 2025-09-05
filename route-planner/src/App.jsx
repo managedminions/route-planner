@@ -16,6 +16,11 @@ function App() {
 
     useEffect(() => {
         feather.replace();
+        var sidebar = document.getElementById("sidebar");
+        var link = document.getElementById("sidebar-toggle");
+        link.addEventListener('click', () => {
+            sidebar.classList.toggle('collapse');
+        });
     }, [location.key]);
 
     feather.replace();
@@ -81,7 +86,7 @@ function App() {
                 </nav>
                 <div className="main">
                     <nav className="navbar navbar-expand navbar-light navbar-bg">
-                        <a className="sidebar-toggle js-sidebar-toggle">
+                        <a className="sidebar-toggle js-sidebar-toggle" id="sidebar-toggle">
                             <i className="hamburger align-self-center" />
                         </a>
                         <div className="navbar-collapse collapse">

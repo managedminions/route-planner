@@ -41,7 +41,7 @@ const HomePage = () => {
                                 />
                             </div>
                         </div>
-                        <div className="col-lg-3">
+                        <div className="col-lg-6">
                             <div className="form-group align-items-center">
                                 <button
                                     className="btn btn-outline-success me-2"
