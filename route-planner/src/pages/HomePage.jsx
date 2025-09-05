@@ -16,13 +16,13 @@ const HomePage = () => {
     return (
         <main className="content">
             <div className="container-fluid p-0">
-                <div className="form-inline mb-4">
+                <div className="form-inline mb-3">
                     <div className="row">
                         <div className="col-lg-3">
                             <div className="form-group align-items-center">
                                 <input
                                     autoFocus
-                                    className="form-control"
+                                    className="form-control mb-3"
                                     id="origin"
                                     name="origin"
                                     placeholder="Starting Address"
@@ -33,7 +33,7 @@ const HomePage = () => {
                         <div className="col-lg-3">
                             <div className="form-group align-items-center">
                                 <input
-                                    className="form-control"
+                                    className="form-control mb-3"
                                     id="destination"
                                     name="destination"
                                     placeholder="Ending Address"
@@ -66,11 +66,11 @@ const HomePage = () => {
                     </div>
                 </div>
                 <div className="row">
-                    <div className="col-lg-8">
+                    <div className="col-lg-8 order-2">
                         <h1 className="h3 d-inline align-middle">Route Planner</h1>
                         <div className="flex-grow rounded-md h-96 lg:h-[700px] z-0" id="map" />
                     </div>
-                    <div className="col-lg-4">
+                    <div className="col-lg-4 order-1">
                         <h3 className="text-3xl font-bold text-gray-800 mb-2">Directions</h3>
                         <p className="text-dark mb-4">
                             Click the map to set your start and end points, or enter the addresses above and click Start.
@@ -86,11 +86,10 @@ const HomePage = () => {
                         </div>
                         <div className="mt-4 d-none" id="route-details">
                             <div className="row">
-                                <div className="col-3 rounded-3">
+                                <div className="col-6 rounded-3">
                                     <h4 className="font-semibold" id="distance-box" />
                                 </div>
-                                <div className="col-1" />
-                                <div className="col-3 rounded-3">
+                                <div className="col-6 rounded-3">
                                     <h4 className="font-semibold" id="time-box" />
                                 </div>
                             </div>

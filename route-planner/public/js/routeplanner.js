@@ -94,6 +94,7 @@ var clearMap = () => {
         routePolyline = null;
     }
     map.setView([38.2527, -85.7585], 9);
+    startInput.focus();
     updateMessage("Map cleared. Click to set a new starting point.");
     clearBtn.disabled = true;
     routeDetails.classList.add("d-none");
